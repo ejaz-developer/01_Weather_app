@@ -85,24 +85,24 @@ function App() {
         backgroundPosition: "center",
       }}
     >
-      <div className="max-w-md w-full space-y-6 backdrop-blur-sm rounded-2xl p-8 bg-white/10">
-        <h1 className="text-4xl font-bold text-center text-white drop-shadow-lg">
+      <div className="max-w-md w-full space-y-6 backdrop-blur-sm rounded-2xl p-4 md:p-8 bg-white/10">
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-white drop-shadow-lg">
           Weather Dashboard
         </h1>
 
         {/* Added Search Bar */}
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex-row gap-2 md:gap-4">
           <input
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             onKeyPress={(e) => e.key === "Enter" && fetchData()}
-            className="flex-1 p-3 rounded-xl bg-white/20 backdrop-blur-sm text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-white"
+            className="flex-1 p-2 md:p-3 rounded-xl bg-white/20 backdrop-blur-sm text-white placeholder-gray-200 focus:outline-none focus:ring-2 focus:ring-white"
             placeholder="Search city..."
           />
           <button
             onClick={fetchData}
-            className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-6 py-3 rounded-xl transition-all duration-300"
+            className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-4 md:px-6 py-2 md:py-3 rounded-xl transition-all duration-300"
           >
             Search
           </button>
@@ -112,54 +112,54 @@ function App() {
         {loading && (
           <div className="text-center p-8">
             <div className="animate-pulse space-y-4">
-              <div className="h-8 bg-white/20 rounded"></div>
-              <div className="h-8 bg-white/20 rounded w-3/4 mx-auto"></div>
+              <div className="h-6 md:h-8 bg-white/20 rounded"></div>
+              <div className="h-6 md:h-8 bg-white/20 rounded w-3/4 mx-auto"></div>
             </div>
           </div>
         )}
 
         {/* Weather Data Display */}
         {data && (
-          <div className="space-y-6 text-white">
-            <div className="flex items-center justify-between">
+          <div className="space-y-4 text-white">
+            <div className="flex flex-col md:flex-row items-center justify-between">
               <div>
-                <h2 className="text-3xl font-bold">{data.name}</h2>
-                <p className="text-xl capitalize">
+                <h2 className="text-xl md:text-3xl font-bold">{data.name}</h2>
+                <p className="text-lg md:text-xl capitalize">
                   {data.weather[0]?.description}
                 </p>
               </div>
               <div className="flex flex-col items-center">
                 <img
                   src={`https://openweathermap.org/img/wn/${data.weather[0]?.icon}@4x.png`}
-                  className="w-24 h-24 animate-fade-in"
+                  className="w-20 h-20 md:w-24 md:h-24 animate-fade-in"
                   alt="Weather icon"
                 />
-                <p className="text-5xl font-bold">
+                <p className="text-4xl md:text-5xl font-bold">
                   {Math.round(data.main.temp)}°C
                 </p>
               </div>
             </div>
 
             {/* Weather Stats Grid */}
-            <div className="grid grid-cols-3 gap-4 text-center">
-              <div className="bg-white/20 p-4 rounded-xl backdrop-blur-sm">
+            <div className="grid grid-cols-2 gap-y-4 md:grid-cols-3 gap-x-4 text-center">
+              <div className="bg-white/20 p-2 md:p-4 rounded-xl backdrop-blur-sm">
                 <p className="text-sm">Feels like</p>
                 <p className="text-xl font-bold">
                   {Math.round(data.main.feels_like)}°C
                 </p>
               </div>
-              <div className="bg-white/20 p-4 rounded-xl backdrop-blur-sm">
+              <div className="bg-white/20 p-2 md:p-4 rounded-xl backdrop-blur-sm">
                 <p className="text-sm">Humidity</p>
                 <p className="text-xl font-bold">{data.main.humidity}%</p>
               </div>
-              <div className="bg-white/20 p-4 rounded-xl backdrop-blur-sm">
+              <div className="bg-white/20 p-2 md:p-4 rounded-xl backdrop-blur-sm">
                 <p className="text-sm">Pressure</p>
                 <p className="text-xl font-bold">{data.main.pressure}hPa</p>
               </div>
             </div>
 
             {/* Temperature Range */}
-            <div className="flex justify-between text-center backdrop-blur-sm bg-white/20 p-4 rounded-xl">
+            <div className="flex flex-col md:flex-row justify-between text-center backdrop-blur-sm bg-white/20 p-2 rounded-xl">
               <div>
                 <p className="text-sm">Min Temp</p>
                 <p className="text-xl">{Math.round(data.main.temp_min)}°C</p>
