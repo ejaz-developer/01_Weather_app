@@ -31,15 +31,20 @@ function App() {
   const [error, setError] = useState<string | null>(null);
 
   const backgroundImages = {
-    Clear: "https://images.unsplash.com/photo-1601134467661-3a775e007848",
-    Clouds: "https://images.unsplash.com/photo-1483977399921-6cf94f6fdc3a",
-    Rain: "https://images.unsplash.com/photo-1438449805895-5918d2267f19",
-    Snow: "https://images.unsplash.com/photo-1491002052546-bf38f186af56",
-    "Moderate snow showers": "https://example.com/moderate-snow-image.jpg",
-    "Heavy snow showers": "https://example.com/heavy-snow-image.jpg",
+    Clear:
+      "https://plus.unsplash.com/premium_photo-1675177698286-8c3edc5de261?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    Clouds:
+      "https://plus.unsplash.com/premium_photo-1727540690253-c40ab51328de?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    Rain: "https://plus.unsplash.com/premium_photo-1671406233410-9727cf249910?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    Snow: "https://plus.unsplash.com/premium_photo-1663090593977-9923cc536f3b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Moderate snow showers":
+      "https://images.unsplash.com/photo-1477601263568-180e2c6d046e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "Heavy snow showers":
+      "https://plus.unsplash.com/premium_photo-1672864570755-bd038f3b645f?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     Thunderstorm:
-      "https://images.unsplash.com/photo-1530533718754-001d3088360a",
-    default: "https://images.unsplash.com/photo-1504608524841-42fe6f032b5b",
+      "https://plus.unsplash.com/premium_photo-1726818265070-c08eb719d77c?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    default:
+      "https://plus.unsplash.com/premium_photo-1673603988651-99f79e4ae7d3?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   };
   const updateBackground = (weatherArr: Weather[]) => {
     const weatherDescriptions = weatherArr.map(
